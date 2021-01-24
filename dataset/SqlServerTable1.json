@@ -27,7 +27,7 @@
 		],
 		"typeProperties": {
 			"schema": "dbo",
-			"table": "STOCK1"
+			"table": "STOCK2"
 		}
 	},
 	"type": "Microsoft.DataFactory/factories/datasets"

@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "new_stock.txt",
+				"fileName": "YellowTaxiTripData.csv",
 				"container": "sascontainer"
 			},
 			"columnDelimiter": ",",

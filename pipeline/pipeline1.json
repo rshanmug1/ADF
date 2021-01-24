@@ -18,7 +18,7 @@
 					"source": {
 						"type": "DelimitedTextSource",
 						"storeSettings": {
-							"type": "AzureBlobFSReadSettings",
+							"type": "AzureBlobStorageReadSettings",
 							"recursive": true,
 							"enablePartitionDiscovery": false
 						},
@@ -27,15 +27,8 @@
 						}
 					},
 					"sink": {
-						"type": "DelimitedTextSink",
-						"storeSettings": {
-							"type": "AzureBlobStorageWriteSettings"
-						},
-						"formatSettings": {
-							"type": "DelimitedTextWriteSettings",
-							"quoteAllText": true,
-							"fileExtension": ".txt"
-						}
+						"type": "SqlServerSink",
+						"tableOption": "autoCreate"
 					},
 					"enableStaging": false,
 					"translator": {
@@ -43,7 +36,7 @@
 						"mappings": [
 							{
 								"source": {
-									"name": "STOCK",
+									"name": "VendorID",
 									"type": "String",
 									"physicalType": "String"
 								},
@@ -55,19 +48,19 @@
 							},
 							{
 								"source": {
-									"name": "START_PRICE",
+									"name": "payment_type",
 									"type": "String",
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "START_PRICE",
+									"name": "START_PRCE",
 									"type": "String",
 									"physicalType": "varchar"
 								}
 							},
 							{
 								"source": {
-									"name": "END_PRICE",
+									"name": "passenger_count",
 									"type": "String",
 									"physicalType": "String"
 								},
@@ -79,7 +72,7 @@
 							},
 							{
 								"source": {
-									"name": "CLOSE_PRICE",
+									"name": "tolls_amount",
 									"type": "String",
 									"physicalType": "String"
 								},
@@ -99,13 +92,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "DelimitedText1",
+						"referenceName": "DelimitedText2",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "DelimitedText2",
+						"referenceName": "SqlServerTable1",
 						"type": "DatasetReference"
 					}
 				]
