@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "stock_value.txt",
+				"fileName": "new_stock1.txt",
 				"fileSystem": "container"
 			},
 			"columnDelimiter": ",",
