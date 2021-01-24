@@ -41,15 +41,6 @@
 						"mappings": [
 							{
 								"source": {
-									"name": "VendorID",
-									"type": "String"
-								},
-								"sink": {
-									"path": "$['VendorID']"
-								}
-							},
-							{
-								"source": {
 									"name": "tpep_pickup_datetime",
 									"type": "String"
 								},
