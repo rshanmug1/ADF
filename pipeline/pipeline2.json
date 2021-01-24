@@ -1,0 +1,214 @@
+{
+	"name": "pipeline2",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy data to gen2",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "JsonSink",
+						"storeSettings": {
+							"type": "AzureBlobStorageWriteSettings"
+						},
+						"formatSettings": {
+							"type": "JsonWriteSettings"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "VendorID",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['VendorID']"
+								}
+							},
+							{
+								"source": {
+									"name": "tpep_pickup_datetime",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['tpep_pickup_datetime']"
+								}
+							},
+							{
+								"source": {
+									"name": "tpep_dropoff_datetime",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['tpep_dropoff_datetime']"
+								}
+							},
+							{
+								"source": {
+									"name": "passenger_count",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['passenger_count']"
+								}
+							},
+							{
+								"source": {
+									"name": "trip_distance",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['trip_distance']"
+								}
+							},
+							{
+								"source": {
+									"name": "RatecodeID",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['RatecodeID']"
+								}
+							},
+							{
+								"source": {
+									"name": "store_and_fwd_flag",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['store_and_fwd_flag']"
+								}
+							},
+							{
+								"source": {
+									"name": "PULocationID",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['PULocationID']"
+								}
+							},
+							{
+								"source": {
+									"name": "DOLocationID",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['DOLocationID']"
+								}
+							},
+							{
+								"source": {
+									"name": "payment_type",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['payment_type']"
+								}
+							},
+							{
+								"source": {
+									"name": "fare_amount",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['fare_amount']"
+								}
+							},
+							{
+								"source": {
+									"name": "extra",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['extra']"
+								}
+							},
+							{
+								"source": {
+									"name": "mta_tax",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['mta_tax']"
+								}
+							},
+							{
+								"source": {
+									"name": "tip_amount",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['tip_amount']"
+								}
+							},
+							{
+								"source": {
+									"name": "tolls_amount",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['tolls_amount']"
+								}
+							},
+							{
+								"source": {
+									"name": "improvement_surcharge",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['improvement_surcharge']"
+								}
+							},
+							{
+								"source": {
+									"name": "total_amount",
+									"type": "String"
+								},
+								"sink": {
+									"path": "$['total_amount']"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "DelimitedText2",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "Json1",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": []
+	}
+}
