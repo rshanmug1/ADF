@@ -1,17 +1,17 @@
 {
-	"name": "DelimitedText1",
+	"name": "DelimitedText2",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "AzureDataLakeStorage1",
+			"referenceName": "AzureBlobStorage2",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
-				"type": "AzureBlobFSLocation",
-				"fileName": "stock_value.txt",
-				"fileSystem": "container"
+				"type": "AzureBlobStorageLocation",
+				"fileName": "new_stock.txt",
+				"container": "sascontainer"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
@@ -19,6 +19,5 @@
 			"quoteChar": "\""
 		},
 		"schema": []
-	},
-	"type": "Microsoft.DataFactory/factories/datasets"
+	}
 }

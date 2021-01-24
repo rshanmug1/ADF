@@ -7,10 +7,27 @@
 		},
 		"annotations": [],
 		"type": "SqlServerTable",
-		"schema": [],
+		"schema": [
+			{
+				"name": "STOCK",
+				"type": "varchar"
+			},
+			{
+				"name": "START_PRCE",
+				"type": "varchar"
+			},
+			{
+				"name": "END_PRICE",
+				"type": "varchar"
+			},
+			{
+				"name": "CLOSE_PRICE",
+				"type": "varchar"
+			}
+		],
 		"typeProperties": {
 			"schema": "dbo",
-			"table": "STOCK"
+			"table": "STOCK1"
 		}
 	},
 	"type": "Microsoft.DataFactory/factories/datasets"
